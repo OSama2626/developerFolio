@@ -2,6 +2,8 @@
 
 .contact-div-main {
   display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .dark-mode a {
@@ -46,10 +48,22 @@
 }
 
 .contact-image-div > img {
-  max-width: 100%;
+  display: block;
+  width: 112%;
+  max-width: none;
   height: auto;
-  margin-left: 1.5rem;
-  margin-top: -4rem;
+  margin: 0 -5% 0 auto;
+}
+
+.contact-image-div > div {
+  width: 112%;
+  margin: 0 -5% 0 auto;
+}
+
+.contact-image-div svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* Media Query */
@@ -84,4 +98,6 @@
   .contact-image-div {
     display: none;
   }
+
+  .contact-div-main { gap: 0; }
 }

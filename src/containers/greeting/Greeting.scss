@@ -15,6 +15,8 @@
 
 .greeting-main {
   display: flex;
+  align-items: center;
+  gap: 64px;
 }
 
 .subTitle {
@@ -30,14 +32,27 @@
   margin-bottom: 30px;
 }
 
+.greeting-image-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.greeting-text-div {
+  display: flex;
+  align-items: center;
+}
+
 .empty-div {
   margin-bottom: 40px;
 }
 
 .button-greeting-div {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 40px;
 }
+
 .download-link-button {
   text-decoration: none;
 }
@@ -53,9 +68,43 @@
   line-height: 40px;
 }
 
-.greeting-image-div > img {
-  max-width: 100%;
-  height: auto;
+.greeting-photo-frame {
+  position: relative;
+  width: min(100%, 410px);
+  aspect-ratio: 4 / 5;
+  border: 2px solid rgba(15, 76, 129, 0.78);
+  border-radius: 26px;
+  box-shadow: 0 24px 60px rgba(29, 78, 216, 0.22);
+  background: $lightBackground1;
+}
+
+.greeting-photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 26px -22px -20px 24px;
+  z-index: -1;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #0f4c81, #38bdf8);
+  opacity: 0.42;
+}
+
+.greeting-photo-frame-dark {
+  border-color: rgba(96, 165, 250, 0.82);
+  background: $darkBackground;
+  box-shadow: 0 24px 70px rgba(56, 189, 248, 0.18);
+}
+
+.greeting-photo-frame-dark::before {
+  opacity: 0.32;
+}
+
+.greeting-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  object-fit: cover;
+  object-position: center 38%;
 }
 
 .wave-emoji {
@@ -98,10 +147,17 @@
   .greeting-text-p {
     font-size: 20px;
   }
+  .greeting-main {
+    gap: 48px;
+  }
+  .greeting-photo-frame {
+    width: min(100%, 390px);
+  }
 }
 @media (max-width: 768px) {
   .button-greeting-div {
-    justify-content: space-around;
+    justify-content: center;
+    gap: 0 14px;
   }
   .greeting-text {
     font-size: 30px;
@@ -113,10 +169,23 @@
     text-align: center;
   }
   .greeting-main {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
   }
   .greeting-image-div {
-    height: 256px;
+    width: 100%;
+    order: 1;
+  }
+  .greeting-text-div {
+    order: 2;
+    width: 100%;
+  }
+  .greeting-photo-frame {
+    width: min(88vw, 360px);
+  }
+  .greeting-photo-frame::before {
+    inset: 18px -14px -14px 18px;
   }
 }
 

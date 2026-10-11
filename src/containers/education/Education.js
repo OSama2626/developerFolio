@@ -10,7 +10,7 @@ export default function Education() {
         <h1 className="education-heading">Education</h1>
         <div className="education-card-container">
           {educationInfo.schools.map((school, index) => (
-            <EducationCard key={index} school={school} />
+            <EducationCard key={index} school={school} index={index} />
           ))}
         </div>
       </div>
